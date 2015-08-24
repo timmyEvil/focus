@@ -1,0 +1,20 @@
+{
+  "name": "focus",
+  "main": "focus.js",
+  "version": "0.0.1",
+  "authors": [
+    "Hsiu-Yuan Shan <hyshan@cht.com.tw>"
+  ],
+  "description": "AgngulrJS focus diretive",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
