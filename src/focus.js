@@ -1,5 +1,7 @@
 /*http://stackoverflow.com/questions/14833326/how-to-set-focus-in-angularjs*/
 (function() {
+    'use strict';
+
     /**
      * @ngdoc directive
      * @name c.focus.directive:cFocusOn

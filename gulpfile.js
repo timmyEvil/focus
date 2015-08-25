@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var rimraf = require('gulp-rimraf');
+var KarmaServer = require('karma').Server;
 var gulpDocs = require('gulp-ngdocs');
 var browserSync = require('browser-sync').create();
 var ghPages = require('gulp-gh-pages');
@@ -10,6 +11,21 @@ gulp.task('clean', function () {
         .pipe(rimraf());
 });
 
+gulp.task('test', function (done) {
+    new KarmaServer({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done).start();
+});
+
+gulp.task('tdd', function (done) {
+    new KarmaServer({
+        configFile: __dirname + '/karma.conf.js'
+    }, done).start();
+});
+
+gulp.task('default', ['tdd']);
+
 gulp.task('ngdocs', ['clean'], function () {
     var options = {
         loadDefaults: {
@@ -19,12 +35,10 @@ gulp.task('ngdocs', ['clean'], function () {
             prettify: false
         },
         scripts: [
-            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/jquery/dist/jquery.js',
             'node_modules/marked/lib/marked.js',
-            'node_modules/angular/angular.min.js',
-            'node_modules/angular/angular.min.js.map',
-            'node_modules/angular-animate/angular-animate.min.js',
-            'node_modules/angular-animate/angular-animate.min.js.map',
+            'node_modules/angular/angular.js',
+            'node_modules/angular-animate/angular-animate.js',
             'src/focus.js'],
         html5Mode: false
     }
@@ -35,13 +49,13 @@ gulp.task('ngdocs', ['clean'], function () {
         .pipe(gulp.dest('./docs'));
 });
 
-gulp.task('deploy', function () {
+gulp.task('deploy-docs', function () {
     return gulp
         .src('docs/**/*')
         .pipe(ghPages());
 });
 
-gulp.task('serve', ['ngdocs'], function (done) {
+gulp.task('serve-docs', ['ngdocs-docs'], function (done) {
     browserSync.init({
         server: "./docs"
     });
@@ -50,4 +64,4 @@ gulp.task('serve', ['ngdocs'], function (done) {
     gulp.watch("docs/index.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['tdd']);
