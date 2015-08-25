@@ -1,14 +1,12 @@
 var gulp = require('gulp');
-var rimraf = require('gulp-rimraf');
+var del = require('del');
 var KarmaServer = require('karma').Server;
 var gulpDocs = require('gulp-ngdocs');
 var browserSync = require('browser-sync').create();
 var ghPages = require('gulp-gh-pages');
 
-gulp.task('clean', function () {
-    return gulp
-        .src(['dist', 'docs'], {read: false})
-        .pipe(rimraf());
+gulp.task('clean', function (done) {
+    del(['dist', 'docs'], done);
 });
 
 gulp.task('test', function (done) {
