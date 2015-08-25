@@ -1,8 +1,7 @@
 var gulp = require('gulp');
-var connect = require('connect');
 var rimraf = require('gulp-rimraf');
-var serveStatic = require('serve-static');
 var gulpDocs = require('gulp-ngdocs');
+var browserSync = require('browser-sync').create();
 var ghPages = require('gulp-gh-pages');
 
 gulp.task('clean', function () {
@@ -42,10 +41,13 @@ gulp.task('deploy', function () {
         .pipe(ghPages());
 });
 
-gulp.task('default', ['ngdocs'], function (done) {
-    connect()
-        .use(serveStatic('./docs'))
-        .listen(8000);
-    done();
-    console.log('Server started on http://localhost:8000');
+gulp.task('serve', ['ngdocs'], function (done) {
+    browserSync.init({
+        server: "./docs"
+    });
+
+    gulp.watch("src/**/*", ['ngdocs']);
+    gulp.watch("docs/**/*").on('change', browserSync.reload);
 });
+
+gulp.task('default', ['serve']);
