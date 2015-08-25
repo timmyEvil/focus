@@ -1,5 +1,5 @@
 /*http://stackoverflow.com/questions/14833326/how-to-set-focus-in-angularjs*/
-(function() {
+(function (angular) {
     'use strict';
 
     /**
@@ -33,11 +33,11 @@
        </doc:example>
      */
     var focusOn = angular.module("c.focus", []);
-    focusOn.directive('cFocusOn', function() {
+    focusOn.directive('cFocusOn', function () {
         return {
             restrict : 'A',
-            link : function(scope, element, attr) {
-                scope.$watch(attr.cFocusOn, function(value) {
+            link : function (scope, element, attr) {
+                scope.$watch(attr.cFocusOn, function (value) {
                     if (value === true) {
                         element.focus();
                         element.select();
@@ -47,4 +47,4 @@
             }
         };
     });
-})();
+}(angular));
