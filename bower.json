@@ -18,7 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.x",
-    "jquery": "2.x"
+    "jquery": "2.x",
+    "angular": "1.x"
   }
 }
