@@ -29,14 +29,13 @@ gulp.task('ngdocs', ['clean'], function () {
         loadDefaults: {
             angular: false,
             angularAnimate: false,
-            marked: false,
-            prettify: false
+            marked: false
         },
         scripts: [
             'node_modules/jquery/dist/jquery.js',
-            'node_modules/marked/lib/marked.js',
             'node_modules/angular/angular.js',
             'node_modules/angular-animate/angular-animate.js',
+            'node_modules/marked/lib/marked.js',
             'src/focus.js'],
         html5Mode: false
     }
@@ -53,7 +52,7 @@ gulp.task('deploy-docs', function () {
         .pipe(ghPages());
 });
 
-gulp.task('serve-docs', ['ngdocs-docs'], function (done) {
+gulp.task('serve-docs', ['ngdocs'], function (done) {
     browserSync.init({
         server: "./docs"
     });
