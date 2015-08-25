@@ -1,6 +1,6 @@
 {
   "name": "focus",
-  "main": "focus.js",
+  "main": "dist/focus.min.js",
   "version": "0.1.0",
   "authors": [
     "Hsiu-Yuan Shan <hyshan@cht.com.tw>"

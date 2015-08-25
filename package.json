@@ -2,7 +2,7 @@
   "name": "focus",
   "version": "0.1.0",
   "description": "AngulrJS focus directive",
-  "main": "focus.js",
+  "main": "dist/focus.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
