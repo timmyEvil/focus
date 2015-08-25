@@ -7,7 +7,7 @@
      *
      * @element input
      * @param  {expression}  cFocusOn 變數名稱，為布林值。
-     * @description 當cFocusOn 的變數名稱為true時，則focus進入該欄位。
+     * @description 當 cFocusOn 的變數名稱為 true 時，則 focus 進入該欄位。
      *
      * @example
        <doc:example module="app" >
