@@ -47,7 +47,7 @@ gulp.task('serve', ['ngdocs'], function (done) {
     });
 
     gulp.watch("src/**/*", ['ngdocs']);
-    gulp.watch("docs/**/*").on('change', browserSync.reload);
+    gulp.watch("docs/index.html").on('change', browserSync.reload);
 });
 
 gulp.task('default', ['serve']);
