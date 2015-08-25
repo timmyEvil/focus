@@ -8,6 +8,10 @@
   },
   "author": "Hsiu-Yuan Shan <hyshan@cht.com.tw>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChunghwaTelecom/focus"
+  },
   "dependencies": {
     "jquery": "2.x",
     "angular": "^1.4.4"
